@@ -1,17 +1,19 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   template: `
-  @if (isServerRunning){
-    <span>Yes, the server is running</span>
-  } @else {
-    <span>Yes, the server is  not running</span>
-  }
-    <!-- <span>Yes, the server is running</span> -->
+    @for (user of users; track user.id) {
+    <p>{{ user.name }}</p>
+    }
   `,
 })
 export class AppComponent {
-  // isServerRunning = true;
-  isServerRunning = false;
+  users = [
+    { id: 0, name: 'Sarah' },
+    { id: 1, name: 'Amy' },
+    { id: 2, name: 'Rachel' },
+    { id: 3, name: 'Jessica' },
+    { id: 4, name: 'Poornima' },
+  ];
 }
