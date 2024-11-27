@@ -1,14 +1,13 @@
-import { Component, inject } from '@angular/core';
-import { CarService } from './car.service';
+import {Component} from '@angular/core';
+import { LowerCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  template: ` <p>Car Listing: {{ display }}</p> `,
+  template: `
+    {{ username | lowercase}}
+  `,
+  imports: [LowerCasePipe],
 })
 export class AppComponent {
-  display = '';
-
-  constructor(private carService: CarService) {
-    this.display = this.carService.getCars().join('⭐️');
-  }
+  username = 'yOunGTECh';
 }
